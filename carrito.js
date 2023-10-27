@@ -72,3 +72,26 @@ function cargarProductosCarrito(array) {
         }
         
     })
+    btnConfirmCartHTML.addEventListener("click", () => {
+        if(productosEnCarrito.length < 1){
+            Toastify({
+                text: "No tienes productos en tu carrito!",
+                duration: 3000,
+                style: {
+                    background: "black"
+                }
+                }).showToast();
+        }else{
+            let productosEnCarrito = []
+            cargarProductosCarrito(productosEnCarrito);
+            Toastify({
+                text: "Se confirmo tu carrito codigo de seguimiento: 912314",
+                duration: 3000,
+                style: {
+                    background: "green"
+                }
+                }).showToast();
+                cartManager.renderCart()
+        }
+        
+    })
