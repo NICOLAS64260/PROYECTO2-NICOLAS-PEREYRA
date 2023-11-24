@@ -3,6 +3,7 @@ let productosEnCarrito = JSON.parse(localStorage.getItem('productos-en-carrito')
 const btnCleanCartHTML = document.querySelector("#btnCleanCart")
 const btnConfirmCartHTML = document.querySelector("#btnConfirmCart")
 const totalHTML = document.querySelector("#total")
+let botonesEliminar = document.querySelectorAll(".carrito-producto-eliminar");
 
 console.log(productosEnCarrito)
 
@@ -23,11 +24,14 @@ function cargarProductosCarrito(array) {
                             <div >
                                 <p>${producto.category}</p>
                             </div>
-                            <button class="btn btn-delete-cart" id="btn-delete-cart-${producto.id}"><i class="bi bi-trash3-fill"></i></button>
+                            <button class="carrito-producto-eliminar" id="${producto.id}"><i class="bi bi-trash3-fill"></i></button>
                         </div>
                     </div>
                     `
         });
+
+        actualizarBotonesEliminar();
+
     } else{
         carritohtml.innerHTML = "";
         carritohtml.innerHTML += `
@@ -95,3 +99,28 @@ function cargarProductosCarrito(array) {
         }
         
     })
+
+
+    function actualizarBotonesEliminar() {
+        botonesEliminar = document.querySelectorAll(".carrito-producto-eliminar");
+    
+        botonesEliminar.forEach(boton => {
+            boton.addEventListener("click", eliminarDelCarrito);
+        });
+    }
+
+
+    function eliminarDelCarrito(e) {
+        
+        const idBoton = e.currentTarget.id;
+        console.log(idBoton)
+        const index = productosEnCarrito.findIndex(producto => producto.id == idBoton);
+        console.log(index)
+        
+        productosEnCarrito.splice(index, 1);
+        cargarProductosCarrito(productosEnCarrito);
+    
+        localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
+    
+    }
+    
