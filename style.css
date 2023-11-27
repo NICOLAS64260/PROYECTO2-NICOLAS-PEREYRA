@@ -156,3 +156,70 @@ nav{
     justify-content: space-between;
     align-items: center;
 }
+
+@media screen and (max-width: 850px) {
+    .articulos {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 675px) {
+    .articulos {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+.boton-menu {
+    background-color: transparent;
+    border: 0;
+    color: var(--clr-white);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 600;
+    padding: 1rem;
+    font-size: .40rem;
+    width: 100%;
+}
+.cart-card h2{
+    font-size: 0.5rem;
+}
+
+@media screen and (max-width: 600px) {
+
+    main {
+        margin: 1rem;
+        margin-top: 0;
+        padding: 2rem;
+    }
+
+    .articulos {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+
+}
+
+
+
+@media screen and (max-width: 400px) {
+    .articulos {
+        grid-template-columns: 1fr;
+    }
+}
+.boton-menu {
+    background-color: transparent;
+    border: 0;
+    color: var(--clr-white);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 600;
+    padding: 1rem;
+    font-size: .20rem;
+    width: 100%;
+}
+.cart-card h2{
+    font-size: 0.5rem;
+}
