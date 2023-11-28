@@ -11,6 +11,7 @@ fetch('./productos.json')
 const articulohtml = document.querySelector (".articulos")
 const botonesCategorias = document.querySelectorAll(".boton-categoria")
 let botonAgregar = document.querySelectorAll(".btn")
+let botonVerMas = document.querySelectorAll(".botn")
 
 
 //  * Esta funcion recorre un array y renderiza una carta de compra por cada elemento.
@@ -30,12 +31,15 @@ function createCartas(array, contendor){
             <span class="card-category">${producto.category}</span>
         </div>
         <button class="btn card-btn-add" id="${producto.id}">Add</button>
+        <a href="VerMas.html"><button class="botn card-btn-add" id="${producto.id}">Ver Mas</button></a>
+        
     </div>
     `;
     
   })
   //una vez creado el html ahora si se le puede agregar el evento para los botones
   actualizarBotonesAgregar();
+  actualizarBotonesVerMas()
 }
 
 //ACA DECLARO EL EVENTO PARA QUE CADA VEZ QUE APRETEN EL BOTON DEL NAVEGADOR SE LE CARGUEN LOS ELEMENTOS CON ESE ID
@@ -58,8 +62,17 @@ function actualizarBotonesAgregar(){
 });
 }
 
+function actualizarBotonesVerMas(){
+  botonVerMas = document.querySelectorAll(".botn")
+
+  botonVerMas.forEach(boton => {
+    boton.addEventListener("click", IrVerMas);
+});
+}
+
 //declaro variable array de "productoEnCarrito"
 let productosEnCarrito = []
+let productoVerMas = []
 
 let productosEnCarritoLS = localStorage.getItem("productos-en-carrito");
 //esta funcion se ejecuta por cada vez que apreten el boton de aderir al carrito
@@ -81,6 +94,13 @@ function agregarAlCarrito(e) {
   actualizarNumerito();
 
   localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
+}
+
+function IrVerMas(e){
+  const idBotn = parseInt(e.currentTarget.id);
+  const productoVerMas = productos.find(producto => producto.id === idBotn);
+  console.log(productoVerMas)
+  localStorage.setItem("productos-ver-mas", JSON.stringify(productoVerMas));
 }
 
 function actualizarNumerito() {

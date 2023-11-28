@@ -98,7 +98,16 @@ nav{
     padding: 12px;
     border-radius: 5px;
 }
+.botn{
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+}
 .btn:hover{
+    transition: all 1s ease-in-out;
+    color: var(--brown)
+}
+.botn:hover{
     transition: all 1s ease-in-out;
     color: var(--brown)
 }
@@ -229,4 +238,39 @@ nav{
     text-decoration: underline;
   }
   
+.imgvermas{
+    width: 453px;
+  height: 677px;
+  margin: 0 auto 0 0;
+  min-height: 400px;
+}
 
+.contenedor-ver-mas {
+    position: relative;
+  flex: 1 ;
+  max-width: 100%;
+  transition-duration: inherit;
+  color: #111111;
+  background-color: #f2f2f2;
+  text-align: center;
+  --theme-sheet-width-xl: 1140px;
+    --theme-sheet-width-lg: 940px;
+    --theme-sheet-width-md: 720px;
+    --theme-sheet-width-sm: 540px;
+    --theme-sheet-width-xs: 340px;
+}
+
+.contenedor-ver-mas-2{
+    padding: 30px 30px 0;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    flex: 1;
+    max-width: 100%;
+}
+
+.precio{
+    font-size: 4.5rem;
+    font-weight: 700;
+}
