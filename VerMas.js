@@ -12,13 +12,14 @@ function cargarProductoVerMas() {
                 vermashtml.innerHTML += `
                 <div class="contenedor-ver-mas">
                 <img src= ${productoVerMas.image} class="imgvermas">
+                </div>
                 <div class="contenedor-ver-mas-2">
                     <h2>${productoVerMas.title}</h2>
                     <div class="precio">$${productoVerMas.price}</div>
                     <div>${productoVerMas.description}</div>
                     <a href="index.html"><button class="botn card-btn-add" id="${productoVerMas.id}">VOLVER</button></a>
                 </div>
-            </div>
+            
                     `
         ;
 

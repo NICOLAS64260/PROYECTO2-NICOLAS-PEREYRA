@@ -246,6 +246,7 @@ nav{
 }
 
 .contenedor-ver-mas {
+        padding: 10px;
     position: relative;
   flex: 1 ;
   max-width: 100%;
